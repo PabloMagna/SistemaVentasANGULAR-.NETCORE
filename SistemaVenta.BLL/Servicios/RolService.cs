@@ -21,7 +21,7 @@ namespace SistemaVenta.BLL.Servicios
             _rolRepositorio = rolRepositorio;
             _mapper = mapper;
         }
-        public async Task<List<RolDTO>> List()
+        public async Task<List<RolDTO>> Lista()
         {
             try
             {

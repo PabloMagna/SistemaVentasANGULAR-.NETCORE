@@ -8,7 +8,7 @@ namespace SistemaVenta.DTO
 {
     public class UsuarioDTO
     {
-        public int IdUsuario { get; set; }
+        public int ?IdUsuario { get; set; }
 
         public string? NombreCompleto { get; set; }
 
@@ -20,5 +20,6 @@ namespace SistemaVenta.DTO
         public string? Clave { get; set; }
 
         public int? EsActivo { get; set; }
+
     }
 }

@@ -10,6 +10,6 @@ namespace SistemaVenta.BLL.Servicios.Contrato
 {
     public interface IRolService
     {
-        Task<List<RolDTO>> List();
+        Task<List<RolDTO>> Lista();
     }
 }

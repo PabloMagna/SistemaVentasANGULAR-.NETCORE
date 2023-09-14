@@ -10,6 +10,6 @@ namespace SistemaVenta.BLL.Servicios.Contrato
 {
     public interface IMenuService
     {
-        Task<MenuDTO> Lista(int idUsuario);
+        Task<List<MenuDTO>> Lista(int idUsuario);
     }
 }

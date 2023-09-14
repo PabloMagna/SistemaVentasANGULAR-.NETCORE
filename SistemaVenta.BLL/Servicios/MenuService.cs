@@ -29,7 +29,7 @@ namespace SistemaVenta.BLL.Servicios
             _mapper = mapper;
         }
 
-        public async Task<MenuDTO> Lista(int idUsuario)
+        public async Task<List<MenuDTO>> Lista(int idUsuario)
         {
             IQueryable<Usuario> tbUsuario = await _usuarioRepositorio.Consultar(u => u.IdUsuario == idUsuario);
             IQueryable<MenuRol> tbMenuRol = await _menuRolRepositorio.Consultar();
@@ -42,7 +42,7 @@ namespace SistemaVenta.BLL.Servicios
                                                 join m in tbMenu on mr.IdMenu equals m.IdMenu
                                                 select m).AsQueryable();
                 var listaMenus = tbResultado.ToList();
-                return _mapper.Map<MenuDTO>(listaMenus);
+                return _mapper.Map<List<MenuDTO>>(listaMenus);
             }
             catch
             {
