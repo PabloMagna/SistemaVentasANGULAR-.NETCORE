@@ -20,7 +20,7 @@ namespace SistemaVenta.API.Controllers
         }
         [HttpGet]
         [Route("Resumen")]
-        public async Task<IActionResult> Reseumen()
+        public async Task<IActionResult> Resumen()
         {
             var rsp = new Response<DashBoardDTO>();
             try

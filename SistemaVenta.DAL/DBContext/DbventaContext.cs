@@ -35,7 +35,11 @@ public partial class DbventaContext : DbContext
     public virtual DbSet<Venta> Venta { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("");
+    {
+        // No es necesario configurar la cadena de conexión aquí.
+        // optionsBuilder.UseSqlServer("");
+    }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
