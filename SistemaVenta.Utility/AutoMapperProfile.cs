@@ -39,6 +39,10 @@ namespace SistemaVenta.Utility
                 .ForMember(destino =>
                 destino.EsActivo, op =>
                 op.MapFrom(origen => origen.EsActivo == 1 ? true : false));
+
+            CreateMap<Usuario, SesionDTO>()
+                .ForMember(destino => destino.RolDescripcion, op => op.MapFrom(origen => origen.IdRolNavigation.Nombre));
+
             #endregion
             #region CATEGORIA
             CreateMap<Categoria, CategoriaDTO>().ReverseMap();

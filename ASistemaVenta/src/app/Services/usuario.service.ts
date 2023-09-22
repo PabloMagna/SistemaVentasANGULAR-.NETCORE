@@ -15,18 +15,18 @@ export class UsuarioService {
   constructor(private http:HttpClient) { }
 
   iniciarSesion(request:Login):Observable<ResponseApi>{
-    return this.http.post<ResponseApi>('${this.urlApi}IniciarSesion',request);
+    return this.http.post<ResponseApi>(`${this.urlApi}IniciarSesion`, request);
   }
   lista():Observable<ResponseApi>{
-    return this.http.get<ResponseApi>('${this.urlApi}Lista');
+    return this.http.get<ResponseApi>(`${this.urlApi}Lista`);
   }
   guardar(request:Usuario):Observable<ResponseApi>{
-    return this.http.post<ResponseApi>('${this.urlApi}Guardar',request);
+    return this.http.post<ResponseApi>(`${this.urlApi}Guardar`,request);
   }
   editar(request:Usuario):Observable<ResponseApi>{
-    return this.http.put<ResponseApi>('${this.urlApi}Editar',request);
+    return this.http.put<ResponseApi>(`${this.urlApi}Editar`,request);
   }
   eliminar(id:number):Observable<ResponseApi>{
-    return this.http.delete<ResponseApi>('${this.urlApi}Eliminar/${id}');
+    return this.http.delete<ResponseApi>(`${this.urlApi}Eliminar/${id}`);
   }
 }
