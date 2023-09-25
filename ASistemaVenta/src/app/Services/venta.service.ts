@@ -16,14 +16,14 @@ export class VentaService {
 
   
   registrar(request:Venta):Observable<ResponseApi>{
-    return this.http.post<ResponseApi>('${this.urlApi}Registrar',request);
+    return this.http.post<ResponseApi>(`${this.urlApi}Registrar`,request);
   }
   historial(buscarPor:string, numeroVenta:string, fechaInicio:string, fechaFin:string ):Observable<ResponseApi>{
     return this.http.get<ResponseApi>(
-      '${this.urlApi}Historial?buscarPor=${buscarPor}&numeroVenta=${numeroVenta&fechaInicio=${fechaInicio}&fechaFin=${fechaFin}');
+      `${this.urlApi}Historial?buscarPor=${buscarPor}&numeroVenta=${numeroVenta}&fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`);
   }
   reporte(fechaInicio:string, fechaFin:string ):Observable<ResponseApi>{
     return this.http.get<ResponseApi>(
-      '${this.urlApi}Reporte?fechaInicio=${fechaInicio}&fechaFin=${fechaFin}');
+      `${this.urlApi}Reporte?fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`);
   }
 }

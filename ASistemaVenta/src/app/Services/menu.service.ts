@@ -14,6 +14,6 @@ export class MenuService {
 
   ista(idUsuario:number):Observable<ResponseApi>{
     return this.http.get<ResponseApi>(
-      '${this.urlApi}Lista?IdUsuario=${idUsuario}');
+      `${this.urlApi}Lista?IdUsuario=${idUsuario}`);
   }
 }

@@ -13,6 +13,6 @@ export class DashBoardService {
   constructor(private http:HttpClient) { }
 
   resumen():Observable<ResponseApi>{
-    return this.http.get<ResponseApi>('${this.urlApi}Resumen');
+    return this.http.get<ResponseApi>(`${this.urlApi}Resumen`);
   }
 }
