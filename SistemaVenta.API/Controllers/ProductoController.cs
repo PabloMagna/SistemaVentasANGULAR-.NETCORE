@@ -69,7 +69,7 @@ namespace SistemaVenta.API.Controllers
             return Ok(rsp);
         }
         [HttpDelete]
-        [Route("Eliminar/(id:int)")]
+        [Route("Eliminar/{id:int}")]
         public async Task<IActionResult> Eliminar(int id)
         {
             var rsp = new Response<bool>();

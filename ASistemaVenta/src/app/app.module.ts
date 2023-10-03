@@ -7,6 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './Components/login/login.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { SharedModule } from './Reutilizable/shared/shared.module';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { SharedModule } from './Reutilizable/shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    MatAutocompleteModule,
+    MatInputModule, // Add MatInputModule
+    MatFormFieldModule // Add MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
