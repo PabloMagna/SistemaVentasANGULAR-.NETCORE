@@ -34,7 +34,7 @@ namespace SistemaVenta.BLL.Servicios
                 var ventaRegistrada = await _ventaRepositorio.Registrar(_mapper.Map<Venta>(modelo));
                 if (ventaRegistrada.IdVenta == 0)
                     throw new TaskCanceledException("La venta no se pudo crear");
-                return  _mapper.Map<VentaDTO>(modelo);
+                return  _mapper.Map<VentaDTO>(ventaRegistrada);
             }
             catch 
             {
@@ -84,8 +84,9 @@ namespace SistemaVenta.BLL.Servicios
             {
                 DateTime fech_inicio = DateTime.ParseExact(fechaInicio, "dd/MM/yyyy", new CultureInfo("es-AR"));
                 DateTime fech_fin = DateTime.ParseExact(fechaFin, "dd/MM/yyyy", new CultureInfo("es-AR"));
-                listaResultado = await query.Include(p =>
-                p.IdVentaNavigation).Include(v => v.IdVentaNavigation).Where(dv =>
+                
+                listaResultado = await query
+                    .Include(p => p.IdProductoNavigation).Include(v => v.IdVentaNavigation).Where(dv =>
                     dv.IdVentaNavigation.FechaRegistro.Value.Date >= fech_inicio.Date &&
                     dv.IdVentaNavigation.FechaRegistro.Value.Date <= fech_fin.Date
                     ).ToListAsync();

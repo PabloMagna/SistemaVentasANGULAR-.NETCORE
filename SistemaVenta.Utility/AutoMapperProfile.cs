@@ -99,6 +99,7 @@ namespace SistemaVenta.Utility
                 destino.Precio, op =>
                 op.MapFrom(origen => Convert.ToDecimal(origen.PrecioTexto, new CultureInfo("es-AR")))).
                 ForMember(destino =>
+ 
                 destino.Total, op =>
                 op.MapFrom(origen => Convert.ToDecimal(origen.TotalTexto, new CultureInfo("es-AR"))));
             #endregion
@@ -116,15 +117,12 @@ namespace SistemaVenta.Utility
                 .ForMember(destino =>
                 destino.TotalVenta, op =>
                 op.MapFrom(origen => Convert.ToString(origen.IdVentaNavigation.Total.Value, new CultureInfo("es-AR"))))
-                .ForMember(destino =>
-                destino.Producto, op =>
-                op.MapFrom(origen => origen.IdProductoNavigation.Nombre))
-                .ForMember(destino =>
-                destino.PrecioTexto, op =>
-                op.MapFrom(origen => origen.Precio.Value.ToString("dd/MM/yyyy")))
-                .ForMember(destino =>
-                destino.TotalTexto, op =>
-                op.MapFrom(origen => origen.Total.Value.ToString("dd/MM/yyyy")));
+                .ForMember(destino => destino.Producto,
+                opt => opt.MapFrom(origen => origen.IdProductoNavigation.Nombre))
+                .ForMember(destino => destino.PrecioTexto,
+                opt => opt.MapFrom(origen => Convert.ToString(origen.Precio.Value, new CultureInfo("es-AR"))))
+                .ForMember(destino => destino.TotalTexto,
+                opt => opt.MapFrom(origen => Convert.ToString(origen.Total.Value, new CultureInfo("es-AR"))));
             #endregion
         }
     }
